@@ -15,4 +15,10 @@ Tasks:
 
 4.	Package and deploy/deliver the finished working software/application.
 
+Login credentials
+Username : go.admin@library.com
+go.librarian@library.com
+go.member@library.com
+Password:test1234
+
 //-- The End --//
