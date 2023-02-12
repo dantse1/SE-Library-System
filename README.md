@@ -16,7 +16,7 @@ Tasks:
 4.	Package and deploy/deliver the finished working software/application.
 
 Login credentials
-Username : go.admin@library.com
+Username : go.admin@library.com <br>
 go.librarian@library.com
 go.member@library.com
 Password:test1234
