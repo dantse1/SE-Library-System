@@ -15,6 +15,4 @@ public class CheckinDTO {
     private Integer checkoutRecordId;
     @NotBlank(message = "Is checked-in cannot be null")
     private String isCheckedIn;
-    // @NotBlank(message = "Overdue fee cannot be blank")
-    // private double overdueFee;
 }

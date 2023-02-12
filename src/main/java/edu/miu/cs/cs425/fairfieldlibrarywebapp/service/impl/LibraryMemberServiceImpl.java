@@ -29,9 +29,6 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
     @Override
     public LibraryMember findLibraryMemberById(Integer libraryMemberId) {
         return libraryMemberRepository.findById(libraryMemberId).orElse(null);
-        // return libraryMemberRepository.findById(libraryMemberId)
-        // .orElseThrow(() -> new CustomNotFoundException(
-        // String.format("Member with Id: %d is not found", libraryMemberId)));
     }
 
     @Override
@@ -57,10 +54,8 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
 
     @Override
     public LibraryMember findLibraryMemberByMemberNumber(String memberNumber) {
-        return libraryMemberRepository.findByMemberNumber(memberNumber).orElse(null);
-        // return libraryMemberRepository.findByMemberNumber(memberNumber)
-        // .orElseThrow(() -> new CustomNotFoundException(
-        // String.format("Member with memberNumber: %s is not found", memberNumber)));
+        return libraryMemberRepository.findLibraryMemberByMemberNumber(memberNumber).orElse(null);
+
     }
 
 }

@@ -69,14 +69,7 @@ public class CheckoutRecordController {
             modelAndView.setViewName("secured/librarian/checkout/new");
             return modelAndView;
         }
-        // var res = checkoutRecordService.saveNewCheckoutRecord(checkoutRecordDTO);
-        // if (res == null) {
-        // modelAndView.addObject("checkoutRecordDTO", checkoutRecordDTO);
-        // modelAndView.addObject("errorMessage", "This member cannot checkout another
-        // book");
-        // modelAndView.setViewName("secured/librarian/checkout/new");
-        // return modelAndView;
-        // }
+
         checkoutRecordService.saveNewCheckoutRecord(checkoutRecordDTO);
         modelAndView.setViewName("redirect:/library/secured/checkout/list");
         return modelAndView;

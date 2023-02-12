@@ -56,8 +56,5 @@ public class Role {
     @Override
     public int hashCode() {
         return Objects.hash(this.roleId, this.name);
-        // int result = roleId != null ? roleId.hashCode() : 0;
-        // result = 31 * result + (name != null ? name.hashCode() : 0);
-        // return result;
     }
 }
