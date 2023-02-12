@@ -19,8 +19,8 @@ INSERT INTO library_members VALUES (null, 'Samuel', 'Tesfay', '10001', '51312345
 INSERT INTO library_members VALUES (null, 'Dawit', 'Asgodom', '10002', '51312346', null, 2);
 INSERT INTO library_members VALUES (null, 'John', 'Walker', '10003', '51312347', null, 3);
 
-INSERT INTO books VALUES (null, 'Leo Tolstoy', 3, '1111', 'A1', 'Penguin and Random House', 'War and Peace', 3);
+INSERT INTO books VALUES (null, 'George Orwell', 3, '1111', 'A1', 'Retro Hugo', 'Animal Farm', 3);
 INSERT INTO books VALUES (null, 'F. Scott Fitzgerald', 5, '2222', 'A2', 'Harper Collins', 'The Great Gatsby', 5);
-INSERT INTO books VALUES (null, 'George Eliot', 2, '3333', 'A3', 'Macmillan', 'Middlemarch', 2);
+INSERT INTO books VALUES (null, 'Sidney Sheldon', 2, '3333', 'A3', 'Macmillan', 'The Other Side Of Midnight', 2);
 INSERT INTO books VALUES (null, 'Mark Twain', 3, '4444', 'A4', 'Simon and Schuster', 'The Adventures of Huckleberry Finn', 3);
 INSERT INTO books VALUES (null, 'Alemseged Tesfay', 100, '1234', 'A5', 'Hidri Publishers', 'Aynfelale', 100);
