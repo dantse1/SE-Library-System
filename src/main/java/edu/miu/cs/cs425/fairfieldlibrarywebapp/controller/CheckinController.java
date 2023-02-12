@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.dto.CheckinDTO;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.CustomNotFoundException;
-import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.service.CheckinService;
 
 @Controller
@@ -115,7 +115,7 @@ public class CheckinController {
     }
 
     @GetMapping(value = { "/search" })
-    public ModelAndView saearchCheckins(@RequestParam String searchString,
+    public ModelAndView searchCheckins(@RequestParam String searchString,
             @RequestParam(defaultValue = "0") int pageNo) {
         if (searchString.isBlank()) {
             return new ModelAndView("redirect:/library/secured/checkin/list");

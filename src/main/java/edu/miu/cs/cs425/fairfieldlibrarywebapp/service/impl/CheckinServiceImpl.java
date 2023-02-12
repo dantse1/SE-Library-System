@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.dto.CheckinDTO;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.CustomNotFoundException;
-import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.repository.CheckoutRecordRepository;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.service.CheckinService;
 
@@ -29,7 +29,7 @@ public class CheckinServiceImpl implements CheckinService {
 
     @Override
     public List<CheckoutRecord> findCheckoutRecordsByIsbn(String isbn) {
-        return checkoutRecordRepository.findCheckoutsdByIsbn(isbn);
+        return checkoutRecordRepository.findCheckoutByIsbn(isbn);
     }
 
     @Override
@@ -70,14 +70,14 @@ public class CheckinServiceImpl implements CheckinService {
     @Override
     public Page<CheckoutRecord> searchCheckins(String searchString, int pageNo) {
         return checkoutRecordRepository
-                .searchCheckinsByIsbnContainingOrBookTitleContaininOrMemberNumberContainingOrMemberNameContaining(
+                .searchCheckinsByIsbnContainingOrBookTitleContainingOrMemberNumberContainingOrMemberNameContaining(
                         searchString, searchString, searchString, searchString, searchString,
                         PageRequest.of(pageNo, 2, Direction.DESC, "checkinDate"));
     }
 
     @Override
-    public void deleteCheckin(Integer checkoutRecordid) {
-        checkoutRecordRepository.deleteById(checkoutRecordid);
+    public void deleteCheckin(Integer checkoutRecordId) {
+        checkoutRecordRepository.deleteById(checkoutRecordId);
     }
 
 }

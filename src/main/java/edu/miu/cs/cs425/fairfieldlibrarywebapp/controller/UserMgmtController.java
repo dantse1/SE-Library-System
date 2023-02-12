@@ -19,7 +19,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = { "/library/secured/admin", "/secured/admin" })
-public class UserMnmtController {
+public class UserMgmtController {
     @Autowired
     private UserService userService;
     @Autowired

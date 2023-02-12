@@ -9,8 +9,6 @@ import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.LibraryMemberType;
 
 @Repository
 public interface LibraryMemberTypeRepository extends JpaRepository<LibraryMemberType, Integer> {
-    List<LibraryMemberType> findAllByNameContainingOrMaxLengthBorrowBookContainingOrOverdueFee(String name,
-            String maxLengthBorrowBook, String overdueFee);
 
-    List<LibraryMemberType> findByNameContaining(String name);
+    List<LibraryMemberType> findLibraryMemberTypeByNameContaining(String name);
 }

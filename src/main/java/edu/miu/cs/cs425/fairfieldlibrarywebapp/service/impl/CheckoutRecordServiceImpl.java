@@ -2,6 +2,7 @@ package edu.miu.cs.cs425.fairfieldlibrarywebapp.service.impl;
 
 import java.util.List;
 
+import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +13,6 @@ import edu.miu.cs.cs425.fairfieldlibrarywebapp.dto.CheckoutRecordDTO;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.BookCopyNotAvailableException;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.CustomNotFoundException;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.MemberCannotCheckoutException;
-import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.repository.BookRepository;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.repository.CheckoutRecordRepository;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.repository.LibraryMemberRepository;
@@ -47,18 +47,18 @@ public class CheckoutRecordServiceImpl implements CheckoutRecordService {
         @Override
         public CheckoutRecord saveNewCheckoutRecord(CheckoutRecordDTO checkoutRecordDTO)
                         throws CustomNotFoundException, BookCopyNotAvailableException, MemberCannotCheckoutException {
-                var libraryMember = libraryMemberRepository.findByMemberNumber(checkoutRecordDTO.getMemberNumber())
+                var libraryMember = libraryMemberRepository.findLibraryMemberByMemberNumber(checkoutRecordDTO.getMemberNumber())
                                 .orElseThrow(() -> new CustomNotFoundException(
                                                 String.format("Member with number: %s is not found",
                                                                 checkoutRecordDTO.getMemberNumber())));
                 var previousRecords = checkoutRecordRepository
-                                .findCheckoutsdByMemberNumber(libraryMember.getMemberNumber());
+                                .findCheckoutByMemberNumber(libraryMember.getMemberNumber());
                 if (previousRecords.size() > 0) {
                         throw new MemberCannotCheckoutException(
                                         String.format("Member with number: %s cannot checkout another book because this member has another checkout record.",
                                                         checkoutRecordDTO.getMemberNumber()));
                 }
-                var book = bookRepository.findByIsbn(checkoutRecordDTO.getIsbn())
+                var book = bookRepository.findBookByIsbn(checkoutRecordDTO.getIsbn())
                                 .orElseThrow(() -> new CustomNotFoundException(
                                                 String.format("Book with ISBN: %s is not found",
                                                                 checkoutRecordDTO.getIsbn())));
@@ -77,11 +77,11 @@ public class CheckoutRecordServiceImpl implements CheckoutRecordService {
         public CheckoutRecord updateCheckoutRecord(CheckoutRecordDTO checkoutRecordDTO) throws CustomNotFoundException {
                 var checkoutRecord = checkoutRecordRepository.findById(checkoutRecordDTO.getCheckoutRecordId())
                                 .orElseThrow(() -> new CustomNotFoundException("Checkout record is not found"));
-                var book = bookRepository.findByIsbn(checkoutRecordDTO.getIsbn())
+                var book = bookRepository.findBookByIsbn(checkoutRecordDTO.getIsbn())
                                 .orElseThrow(() -> new CustomNotFoundException(
                                                 String.format("Book with ISBN: %s is not found",
                                                                 checkoutRecordDTO.getIsbn())));
-                var libraryMember = libraryMemberRepository.findByMemberNumber(checkoutRecordDTO.getMemberNumber())
+                var libraryMember = libraryMemberRepository.findLibraryMemberByMemberNumber(checkoutRecordDTO.getMemberNumber())
                                 .orElseThrow(() -> new CustomNotFoundException(
                                                 String.format("Member with memberNumber: %s is not found",
                                                                 checkoutRecordDTO.getMemberNumber())));

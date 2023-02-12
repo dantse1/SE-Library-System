@@ -12,5 +12,5 @@ import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.Book;
 public interface BookRepository extends JpaRepository<Book, Integer> {
     List<Book> findAllByTitleContainingOrIsbnContainingOrAuthorContaining(String title, String isbn, String author);
 
-    Optional<Book> findByIsbn(String isbn);
+    Optional<Book> findBookByIsbn(String isbn);
 }

@@ -2,13 +2,13 @@ package edu.miu.cs.cs425.fairfieldlibrarywebapp.service;
 
 import java.util.List;
 
+import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import org.springframework.data.domain.Page;
 
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.dto.CheckoutRecordDTO;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.BookCopyNotAvailableException;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.CustomNotFoundException;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.MemberCannotCheckoutException;
-import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 
 public interface CheckoutRecordService {
 

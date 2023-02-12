@@ -2,11 +2,11 @@ package edu.miu.cs.cs425.fairfieldlibrarywebapp.service;
 
 import java.util.List;
 
+import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 import org.springframework.data.domain.Page;
 
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.dto.CheckinDTO;
 import edu.miu.cs.cs425.fairfieldlibrarywebapp.exception.CustomNotFoundException;
-import edu.miu.cs.cs425.fairfieldlibrarywebapp.model.CheckoutRecord;
 
 public interface CheckinService {
 
@@ -22,5 +22,5 @@ public interface CheckinService {
 
     Page<CheckoutRecord> searchCheckins(String searchString, int pageNo);
 
-    void deleteCheckin(Integer checkoutRecordid);
+    void deleteCheckin(Integer checkoutRecordId);
 }
