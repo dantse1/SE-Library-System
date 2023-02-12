@@ -13,5 +13,5 @@ public interface LibraryMemberRepository extends JpaRepository<LibraryMember, In
     List<LibraryMember> findAllByFirstnameContainingOrLastnameContainingOrPhoneContaining(String firstname,
             String lastname, String phone);
 
-    Optional<LibraryMember> findByMemberNumber(String memberNumber);
+    Optional<LibraryMember> findLibraryMemberByMemberNumber(String memberNumber);
 }

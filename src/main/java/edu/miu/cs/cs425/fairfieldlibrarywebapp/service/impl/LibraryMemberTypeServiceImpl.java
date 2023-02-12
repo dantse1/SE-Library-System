@@ -49,10 +49,7 @@ public class LibraryMemberTypeServiceImpl implements LibraryMemberTypeService {
 
     @Override
     public List<LibraryMemberType> searchLibraryMemberTypes(String searchString) {
-        // return
-        // libraryMemberTypeRepository.findAllByNameContainingOrMaxLengthBorrowBookContainingOrOverdueFee(
-        // searchString, searchString, searchString);
-        return libraryMemberTypeRepository.findByNameContaining(searchString);
+        return libraryMemberTypeRepository.findLibraryMemberTypeByNameContaining(searchString);
     }
 
 }
